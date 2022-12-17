@@ -8,10 +8,10 @@ const {
 } = require('./controllers/concertController');
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/concerts' && req.method === 'GET') {
+  if (req.url === '/minini-api.cyclic.app/concerts' && req.method === 'GET') {
     getConcerts(req, res);
-  } else if (req.url.match(/\/concerts\/\w+/) && req.method === 'GET') {
-    const id = req.url.split('/')[2];
+  } else if (req.url.match(/\/minini-api.cyclic.app\/concerts\/\w+/) && req.method === 'GET') {
+    const id = req.url.split('/')[3];
     getConcert(req, res, id);
   } else if (req.url === '/concerts' && req.method === 'POST') {
     createConcert(req, res);
