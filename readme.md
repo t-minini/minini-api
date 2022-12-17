@@ -6,11 +6,11 @@ This is for learning/experimental purposes. In most cases, you would use somethi
 
 ```
 # Routes
-GET      /api/products
-POST     /api/products
-GET      /api/products/:id
-PUT      /api/products/:id
-DELETE   /api/products/:id
+GET      /concerts
+POST     /concerts
+GET      /concerts/:id
+PUT      /concerts/:id
+DELETE   /concerts/:id
 
 ```
 
@@ -21,7 +21,7 @@ DELETE   /api/products/:id
 npm install
 yarn install
 
-# Run in develpment
+# Run in development
 npm run dev
 yarn run dev
 
@@ -29,5 +29,3 @@ yarn run dev
 npm start
 yarn start
 ```
-
-Feel free to add to this and create a PR. I plan on creating a better router, but if you'd like to do that, feel free

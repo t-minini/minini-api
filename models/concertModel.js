@@ -1,48 +1,48 @@
-let products = require('../data/products')
+let concerts = require('../data/db')
 const { v4: uuidv4 } = require('uuid')
 
 const { writeDataToFile } = require('../utils')
 
 function findAll() {
     return new Promise((resolve, reject) => {
-        resolve(products)
+        resolve(concerts)
     })
 }
 
 function findById(id) {
     return new Promise((resolve, reject) => {
-        const product = products.find((p) => p.id === id)
-        resolve(product)
+        const concert = concerts.find((c) => c.id === id)
+        resolve(concert)
     })
 }
 
-function create(product) {
+function create(concert) {
     return new Promise((resolve, reject) => {
-        const newProduct = {id: uuidv4(), ...product}
-        products.push(newProduct)
+        const newConcert = {id: uuidv4(), ...concert}
+        concerts.push(newConcert)
         if (process.env.NODE_ENV !== 'test') {
-            writeDataToFile('./data/products.json', products);
+            writeDataToFile('./data/db.json', concerts);
         }
-        resolve(newProduct)
+        resolve(newConcert)
     })
 }
 
-function update(id, product) {
+function update(id, concert) {
     return new Promise((resolve, reject) => {
-        const index = products.findIndex((p) => p.id === id)
-        products[index] = {id, ...product}
+        const index = concerts.findIndex((p) => p.id === id)
+        concerts[index] = {id, ...concert}
         if (process.env.NODE_ENV !== 'test') {
-            writeDataToFile('./data/products.json', products);
+            writeDataToFile('./data/db.json', concerts);
         }
-        resolve(products[index])
+        resolve(concerts[index])
     })
 }
 
 function remove(id) {
     return new Promise((resolve, reject) => {
-        products = products.filter((p) => p.id !== id)
+        concerts = concerts.filter((p) => p.id !== id)
         if (process.env.NODE_ENV !== 'test') {
-            writeDataToFile('./data/products.json', products);
+            writeDataToFile('./data/db.json', concerts);
         }
         resolve()
     })
